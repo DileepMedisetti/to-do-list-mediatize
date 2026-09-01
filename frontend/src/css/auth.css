@@ -1,0 +1,396 @@
+/* =========================================
+   GLOBAL
+========================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+
+    font-family:
+        Inter,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Arial,
+        sans-serif;
+
+    background: #f5f7fb;
+
+    color: #1f2937;
+}
+
+
+/* =========================================
+   AUTH CONTAINER
+========================================= */
+
+.auth-container {
+    min-height: 100vh;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    padding: 24px;
+}
+
+
+/* =========================================
+   AUTH CARD
+========================================= */
+
+.auth-card {
+    width: 100%;
+
+    max-width: 430px;
+
+    background: #ffffff;
+
+    padding: 36px;
+
+    border-radius: 16px;
+
+    border: 1px solid #eef0f4;
+
+    box-shadow:
+        0 10px 35px rgba(0, 0, 0, 0.08);
+}
+
+
+/* =========================================
+   TITLE
+========================================= */
+
+.auth-card h1 {
+    margin: 0;
+
+    text-align: center;
+
+    font-size: 30px;
+
+    font-weight: 700;
+
+    color: #111827;
+}
+
+
+/* =========================================
+   SUBTITLE
+========================================= */
+
+.auth-subtitle {
+    margin-top: 8px;
+
+    margin-bottom: 30px;
+
+    text-align: center;
+
+    color: #6b7280;
+
+    font-size: 14px;
+
+    line-height: 1.5;
+}
+
+
+/* =========================================
+   FORM
+========================================= */
+
+.auth-card form {
+    width: 100%;
+}
+
+
+/* =========================================
+   FORM GROUP
+========================================= */
+
+.form-group {
+    margin-bottom: 19px;
+}
+
+
+/* =========================================
+   LABEL
+========================================= */
+
+.form-group label {
+    display: block;
+
+    margin-bottom: 7px;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    color: #374151;
+}
+
+
+/* =========================================
+   INPUT
+========================================= */
+
+.form-group input {
+    width: 100%;
+
+    height: 46px;
+
+    padding: 0 13px;
+
+    border: 1px solid #d1d5db;
+
+    border-radius: 8px;
+
+    background: #ffffff;
+
+    color: #111827;
+
+    font-size: 14px;
+
+    outline: none;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
+}
+
+
+/* =========================================
+   INPUT PLACEHOLDER
+========================================= */
+
+.form-group input::placeholder {
+    color: #9ca3af;
+}
+
+
+/* =========================================
+   INPUT FOCUS
+========================================= */
+
+.form-group input:focus {
+    border-color: #6366f1;
+
+    background: #ffffff;
+
+    box-shadow:
+        0 0 0 3px rgba(99, 102, 241, 0.12);
+}
+
+
+/* =========================================
+   SUBMIT BUTTON
+========================================= */
+
+.auth-card form > button {
+    width: 100%;
+
+    height: 46px;
+
+    margin-top: 5px;
+
+    border: none;
+
+    border-radius: 8px;
+
+    background: #111827;
+
+    color: #ffffff;
+
+    font-size: 15px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        transform 0.1s ease,
+        opacity 0.2s ease;
+}
+
+
+/* =========================================
+   BUTTON HOVER
+========================================= */
+
+.auth-card form > button:hover {
+    background: #1f2937;
+}
+
+
+/* =========================================
+   BUTTON ACTIVE
+========================================= */
+
+.auth-card form > button:active {
+    transform: scale(0.99);
+}
+
+
+/* =========================================
+   BUTTON DISABLED
+========================================= */
+
+.auth-card form > button:disabled {
+    opacity: 0.6;
+
+    cursor: not-allowed;
+
+    transform: none;
+}
+
+
+/* =========================================
+   LOGIN / SIGNUP SWITCH
+========================================= */
+
+.auth-switch {
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 5px;
+
+    margin-top: 25px;
+
+    font-size: 14px;
+
+    color: #6b7280;
+}
+
+
+/* =========================================
+   REACT ROUTER LINK
+========================================= */
+
+.auth-switch a {
+    padding: 0;
+
+    border: none;
+
+    background: transparent;
+
+    color: #4f46e5;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    text-decoration: none;
+
+    cursor: pointer;
+
+    transition: color 0.2s ease;
+}
+
+
+/* =========================================
+   LINK HOVER
+========================================= */
+
+.auth-switch a:hover {
+    color: #3730a3;
+
+    text-decoration: underline;
+}
+
+
+/* =========================================
+   TOASTIFY
+========================================= */
+
+.Toastify__toast {
+    font-family:
+        Inter,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Arial,
+        sans-serif;
+
+    font-size: 14px;
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 600px) {
+
+    .auth-container {
+        padding: 18px;
+    }
+
+
+    .auth-card {
+        padding: 30px 24px;
+    }
+
+
+    .auth-card h1 {
+        font-size: 26px;
+    }
+
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 400px) {
+
+    .auth-container {
+        padding: 12px;
+    }
+
+
+    .auth-card {
+        padding: 26px 18px;
+
+        border-radius: 12px;
+    }
+
+
+    .auth-card h1 {
+        font-size: 24px;
+    }
+
+
+    .auth-subtitle {
+        margin-bottom: 24px;
+    }
+
+
+    .form-group {
+        margin-bottom: 16px;
+    }
+
+
+    .form-group input,
+    .auth-card form > button {
+        height: 44px;
+    }
+
+
+    .auth-switch {
+        font-size: 13px;
+    }
+
+
+    .auth-switch a {
+        font-size: 13px;
+    }
+
+}
