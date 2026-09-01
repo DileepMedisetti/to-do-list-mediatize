@@ -6,7 +6,7 @@ import TaskForm from "./TaskForm";
 import EditTaskForm from "./EditTaskForm";
 
 import api from "../api/axios";
-import "../css/dashboard.css";
+import "../css/Dashboard.css";
 
 
 function Dashboard() {
