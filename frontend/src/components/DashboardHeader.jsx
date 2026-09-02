@@ -5,6 +5,10 @@ function DashboardHeader({
     currentUser
 }) {
 
+    // =========================================
+    // TASK STATISTICS
+    // =========================================
+
     const totalTasks = tasks.length;
 
     const todoTasks = tasks.filter(
@@ -19,8 +23,15 @@ function DashboardHeader({
         (task) => task.status === "Completed"
     ).length;
 
+
+    // =========================================
+    // OVERDUE TASKS
+    // =========================================
+
     const today = new Date();
+
     today.setHours(0, 0, 0, 0);
+
 
     const overdueTasks = tasks.filter((task) => {
 
@@ -33,11 +44,17 @@ function DashboardHeader({
         }
 
         const dueDate = new Date(task.due_date);
+
         dueDate.setHours(0, 0, 0, 0);
 
         return dueDate < today;
 
     }).length;
+
+
+    // =========================================
+    // MY TASKS
+    // =========================================
 
     const myTasks = currentUser
         ? tasks.filter(
@@ -47,6 +64,11 @@ function DashboardHeader({
         ).length
         : 0;
 
+
+    // =========================================
+    // ASSIGNED TASKS
+    // =========================================
+
     const assignedTasks = currentUser
         ? tasks.filter(
             (task) =>
@@ -55,6 +77,10 @@ function DashboardHeader({
         ).length
         : 0;
 
+
+    // =========================================
+    // STATISTICS
+    // =========================================
 
     const stats = [
         {
@@ -88,6 +114,15 @@ function DashboardHeader({
     ];
 
 
+    // =========================================
+    // USER INITIAL
+    // =========================================
+
+    const userInitial = currentUser?.full_name
+        ? currentUser.full_name.charAt(0).toUpperCase()
+        : "U";
+
+
     return (
 
         <header className="dashboard-header-wrapper">
@@ -113,6 +148,39 @@ function DashboardHeader({
 
                 <div className="dashboard-header-actions">
 
+                    {/* =========================================
+                        LOGGED-IN USER
+                    ========================================= */}
+
+                    {currentUser && (
+
+                        <div className="logged-in-user">
+
+                            <div className="user-avatar">
+                                {userInitial}
+                            </div>
+
+                            <div className="user-details">
+
+                                <span className="user-label">
+                                    Welcome
+                                </span>
+
+                                <strong>
+                                    {currentUser.full_name}
+                                </strong>
+
+                            </div>
+
+                        </div>
+
+                    )}
+
+
+                    {/* =========================================
+                        ADD TASK
+                    ========================================= */}
+
                     <button
                         type="button"
                         className="add-task-btn"
@@ -121,6 +189,10 @@ function DashboardHeader({
                         + Add Task
                     </button>
 
+
+                    {/* =========================================
+                        LOGOUT
+                    ========================================= */}
 
                     <button
                         type="button"

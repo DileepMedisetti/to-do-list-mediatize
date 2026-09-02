@@ -112,6 +112,202 @@
 
 
 /* =========================================
+   LOGGED-IN USER
+========================================= */
+
+.logged-in-user {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    min-width: 0;
+
+    margin-right: 4px;
+}
+
+
+/* =========================================
+   USER AVATAR
+========================================= */
+
+.user-avatar {
+    width: 40px;
+
+    height: 40px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #2563eb;
+
+    color: #ffffff;
+
+    font-size: 16px;
+
+    font-weight: 700;
+}
+
+
+/* =========================================
+   USER DETAILS
+========================================= */
+
+.user-details {
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    min-width: 0;
+}
+
+
+.user-label {
+    color: #9ca3af;
+
+    font-size: 11px;
+
+    line-height: 1.2;
+}
+
+
+.user-details strong {
+    max-width: 160px;
+
+    overflow: hidden;
+
+    color: #111827;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    line-height: 1.4;
+
+    text-overflow: ellipsis;
+
+    white-space: nowrap;
+}
+
+
+/* =========================================
+   HEADER ACTIONS
+========================================= */
+
+.dashboard-header-actions {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    min-width: 0;
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 900px) {
+
+    .user-details strong {
+        max-width: 120px;
+    }
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 700px) {
+
+    .dashboard-header-actions {
+        width: 100%;
+
+        display: grid;
+
+        grid-template-columns: 1fr 1fr;
+    }
+
+
+    .logged-in-user {
+        grid-column: 1 / -1;
+
+        justify-content: flex-start;
+
+        padding-bottom: 8px;
+    }
+
+
+    .user-details strong {
+        max-width: 220px;
+    }
+}
+
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width: 480px) {
+
+    .user-avatar {
+        width: 36px;
+
+        height: 36px;
+
+        font-size: 14px;
+    }
+
+
+    .user-label {
+        font-size: 10px;
+    }
+
+
+    .user-details strong {
+        max-width: 180px;
+
+        font-size: 13px;
+    }
+}
+
+
+/* =========================================
+   VERY SMALL MOBILE
+========================================= */
+
+@media (max-width: 360px) {
+
+    .user-avatar {
+        width: 34px;
+
+        height: 34px;
+
+        font-size: 13px;
+    }
+
+
+    .user-details strong {
+        max-width: 140px;
+
+        font-size: 12px;
+    }
+}
+
+/* =========================================
    ADD TASK
 ========================================= */
 
