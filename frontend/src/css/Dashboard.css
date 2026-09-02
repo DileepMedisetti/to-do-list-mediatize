@@ -2,52 +2,55 @@
    DASHBOARD
 ========================================= */
 
-* {
-    box-sizing: border-box;
-}
-
-.dashboard {
+.dashboard-container {
+    width: 100%;
     min-height: 100vh;
+    min-height: 100dvh;
 
     padding: 30px;
 
-    background: #f5f7fb;
+    background: #f8fafc;
 
-    color: #1f2937;
+    overflow-x: hidden;
 }
 
 
 /* =========================================
-   DASHBOARD HEADER
+   HEADER
 ========================================= */
 
 .dashboard-header {
-    max-width: 1400px;
-
-    margin: 0 auto 30px;
-
     display: flex;
-
-    justify-content: space-between;
 
     align-items: center;
 
+    justify-content: space-between;
+
     gap: 20px;
+
+    width: 100%;
+
+    margin-bottom: 30px;
 }
 
 
-/* =========================================
-   TITLE
-========================================= */
+.dashboard-title {
+    min-width: 0;
+}
+
 
 .dashboard-title h1 {
     margin: 0;
 
-    font-size: 32px;
+    color: #111827;
+
+    font-size: 30px;
 
     font-weight: 700;
 
-    color: #111827;
+    line-height: 1.3;
+
+    word-break: break-word;
 }
 
 
@@ -57,44 +60,72 @@
     color: #6b7280;
 
     font-size: 14px;
+
+    line-height: 1.5;
 }
 
 
 /* =========================================
-   USER AREA
+   HEADER BUTTONS
 ========================================= */
 
-.dashboard-user {
+.dashboard-header-actions {
     display: flex;
 
     align-items: center;
 
-    gap: 18px;
+    gap: 10px;
+
+    flex-shrink: 0;
 }
 
 
-.user-info {
-    display: flex;
+.add-task-btn,
+.logout-btn {
+    height: 42px;
 
-    flex-direction: column;
+    padding: 0 18px;
 
-    align-items: flex-end;
+    border-radius: 8px;
 
-    gap: 3px;
-}
+    font-family: inherit;
 
-
-.user-info strong {
     font-size: 14px;
 
-    color: #111827;
+    font-weight: 600;
+
+    white-space: nowrap;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.1s ease;
 }
 
 
-.user-info span {
-    font-size: 12px;
+.add-task-btn:active,
+.logout-btn:active {
+    transform: scale(0.98);
+}
 
-    color: #6b7280;
+
+/* =========================================
+   ADD TASK
+========================================= */
+
+.add-task-btn {
+    border: none;
+
+    background: #2563eb;
+
+    color: #ffffff;
+}
+
+
+.add-task-btn:hover {
+    background: #1d4ed8;
 }
 
 
@@ -103,176 +134,16 @@
 ========================================= */
 
 .logout-btn {
-    padding: 9px 16px;
-
     border: 1px solid #d1d5db;
-
-    border-radius: 8px;
 
     background: #ffffff;
 
     color: #374151;
-
-    font-size: 14px;
-
-    font-weight: 600;
-
-    cursor: pointer;
-
-    transition: all 0.2s ease;
 }
 
 
 .logout-btn:hover {
     background: #f3f4f6;
-
-    border-color: #9ca3af;
-}
-
-
-/* =========================================
-   STATISTICS
-========================================= */
-
-.stats-grid {
-    max-width: 1400px;
-
-    margin: 0 auto 35px;
-
-    display: grid;
-
-    grid-template-columns:
-        repeat(7, minmax(0, 1fr));
-
-    gap: 15px;
-}
-
-
-/* =========================================
-   STAT CARD
-========================================= */
-
-.stat-card {
-    min-height: 120px;
-
-    padding: 20px;
-
-    background: #ffffff;
-
-    border: 1px solid #e5e7eb;
-
-    border-radius: 12px;
-
-    display: flex;
-
-    flex-direction: column;
-
-    justify-content: space-between;
-
-    box-shadow:
-        0 3px 12px rgba(0, 0, 0, 0.04);
-}
-
-
-.stat-card span {
-    font-size: 13px;
-
-    color: #6b7280;
-
-    font-weight: 500;
-}
-
-
-.stat-card strong {
-    font-size: 30px;
-
-    color: #111827;
-
-    font-weight: 700;
-}
-
-
-/* =========================================
-   TASK SECTION
-========================================= */
-
-.tasks-section {
-    max-width: 1400px;
-
-    margin: 0 auto;
-
-    background: #ffffff;
-
-    padding: 25px;
-
-    border-radius: 14px;
-
-    border: 1px solid #e5e7eb;
-}
-
-
-/* =========================================
-   TASK HEADER
-========================================= */
-
-.tasks-header {
-    display: flex;
-
-    justify-content: space-between;
-
-    align-items: center;
-
-    gap: 15px;
-
-    margin-bottom: 22px;
-}
-
-
-.tasks-header h2 {
-    margin: 0;
-
-    font-size: 22px;
-
-    color: #111827;
-}
-
-
-.tasks-header p {
-    margin: 5px 0 0;
-
-    color: #6b7280;
-
-    font-size: 13px;
-}
-
-
-/* =========================================
-   CREATE TASK BUTTON
-========================================= */
-
-.create-task-btn {
-    padding: 10px 17px;
-
-    border: none;
-
-    border-radius: 8px;
-
-    background: #111827;
-
-    color: #ffffff;
-
-    font-size: 14px;
-
-    font-weight: 600;
-
-    cursor: pointer;
-
-    transition: background 0.2s ease;
-}
-
-
-.create-task-btn:hover {
-    background: #374151;
 }
 
 
@@ -280,29 +151,35 @@
    FILTERS
 ========================================= */
 
-.task-filters {
-    display: grid;
+.dashboard-controls {
+    display: flex;
 
-    grid-template-columns:
-        minmax(200px, 1fr)
-        180px
-        180px;
+    align-items: center;
 
     gap: 12px;
 
-    margin-bottom: 25px;
+    width: 100%;
+
+    margin-bottom: 20px;
 }
 
 
-/* =========================================
-   FILTER INPUT
-========================================= */
+.search-wrapper {
+    flex: 1;
 
-.task-filters input,
-.task-filters select {
+    min-width: 0;
+}
+
+
+.search-wrapper input,
+.dashboard-controls select {
+    display: block;
+
     width: 100%;
 
-    height: 44px;
+    max-width: 100%;
+
+    height: 42px;
 
     padding: 0 12px;
 
@@ -310,27 +187,64 @@
 
     border-radius: 8px;
 
+    outline: none;
+
     background: #ffffff;
 
-    color: #374151;
+    color: #111827;
+
+    font-family: inherit;
 
     font-size: 14px;
 
-    outline: none;
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
 }
 
 
-.task-filters input::placeholder {
+.dashboard-controls select {
+    width: 170px;
+
+    flex-shrink: 0;
+
+    cursor: pointer;
+}
+
+
+.search-wrapper input::placeholder {
     color: #9ca3af;
 }
 
 
-.task-filters input:focus,
-.task-filters select:focus {
-    border-color: #6366f1;
+.search-wrapper input:focus,
+.dashboard-controls select:focus {
+    border-color: #2563eb;
 
     box-shadow:
-        0 0 0 3px rgba(99, 102, 241, 0.1);
+        0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+
+/* =========================================
+   TASK COUNT
+========================================= */
+
+.task-count {
+    margin-bottom: 18px;
+
+    color: #6b7280;
+
+    font-size: 14px;
+
+    line-height: 1.5;
+}
+
+
+.task-count span {
+    color: #111827;
+
+    font-weight: 700;
 }
 
 
@@ -342,319 +256,11 @@
     display: grid;
 
     grid-template-columns:
-        repeat(3, minmax(0, 1fr));
+        repeat(auto-fill, minmax(300px, 1fr));
 
-    gap: 18px;
-}
+    gap: 20px;
 
-
-/* =========================================
-   TASK CARD
-========================================= */
-
-.task-card {
-    padding: 20px;
-
-    background: #ffffff;
-
-    border: 1px solid #e5e7eb;
-
-    border-radius: 12px;
-
-    box-shadow:
-        0 3px 12px rgba(0, 0, 0, 0.04);
-
-    transition:
-        transform 0.2s ease,
-        box-shadow 0.2s ease;
-}
-
-
-.task-card:hover {
-    transform: translateY(-2px);
-
-    box-shadow:
-        0 8px 20px rgba(0, 0, 0, 0.07);
-}
-
-
-/* =========================================
-   TASK CARD HEADER
-========================================= */
-
-.task-card-header {
-    display: flex;
-
-    justify-content: space-between;
-
-    align-items: flex-start;
-
-    gap: 12px;
-
-    margin-bottom: 12px;
-}
-
-
-.task-card-header h3 {
-    margin: 0;
-
-    font-size: 17px;
-
-    line-height: 1.4;
-
-    color: #111827;
-
-    word-break: break-word;
-}
-
-
-/* =========================================
-   PRIORITY BADGE
-========================================= */
-
-.priority-badge {
-    flex-shrink: 0;
-
-    padding: 5px 9px;
-
-    border-radius: 20px;
-
-    font-size: 11px;
-
-    font-weight: 600;
-}
-
-
-.priority-badge.low {
-    background: #ecfdf5;
-
-    color: #047857;
-}
-
-
-.priority-badge.medium {
-    background: #fffbeb;
-
-    color: #b45309;
-}
-
-
-.priority-badge.high {
-    background: #fef2f2;
-
-    color: #dc2626;
-}
-
-
-/* =========================================
-   DESCRIPTION
-========================================= */
-
-.task-description {
-    margin: 0 0 18px;
-
-    min-height: 40px;
-
-    color: #6b7280;
-
-    font-size: 13px;
-
-    line-height: 1.6;
-
-    display: -webkit-box;
-
-    -webkit-line-clamp: 2;
-
-    -webkit-box-orient: vertical;
-
-    overflow: hidden;
-}
-
-
-/* =========================================
-   TASK DETAIL
-========================================= */
-
-.task-detail {
-    display: flex;
-
-    justify-content: space-between;
-
-    align-items: center;
-
-    padding: 9px 0;
-
-    border-top: 1px solid #f0f0f0;
-}
-
-
-.task-detail span {
-    color: #6b7280;
-
-    font-size: 12px;
-}
-
-
-.task-detail strong {
-    color: #374151;
-
-    font-size: 12px;
-
-    text-align: right;
-}
-
-
-/* =========================================
-   PROGRESS
-========================================= */
-
-.progress-section {
-    margin-top: 15px;
-}
-
-
-.progress-header {
-    display: flex;
-
-    justify-content: space-between;
-
-    margin-bottom: 7px;
-
-    font-size: 12px;
-
-    color: #6b7280;
-}
-
-
-.progress-header span:last-child {
-    font-weight: 600;
-
-    color: #374151;
-}
-
-
-.progress-bar {
     width: 100%;
-
-    height: 7px;
-
-    background: #e5e7eb;
-
-    border-radius: 10px;
-
-    overflow: hidden;
-}
-
-
-.progress-fill {
-    height: 100%;
-
-    background: #4f46e5;
-
-    border-radius: 10px;
-
-    transition: width 0.3s ease;
-}
-
-
-/* =========================================
-   OVERDUE
-========================================= */
-
-.overdue-label {
-    margin-top: 12px;
-
-    padding: 7px 10px;
-
-    border-radius: 6px;
-
-    background: #fef2f2;
-
-    color: #dc2626;
-
-    text-align: center;
-
-    font-size: 12px;
-
-    font-weight: 600;
-}
-
-
-/* =========================================
-   TASK ACTIONS
-========================================= */
-
-.task-actions {
-    display: flex;
-
-    gap: 8px;
-
-    margin-top: 18px;
-}
-
-
-.task-actions button {
-    flex: 1;
-
-    padding: 8px 10px;
-
-    border: 1px solid #d1d5db;
-
-    border-radius: 7px;
-
-    background: #ffffff;
-
-    color: #374151;
-
-    font-size: 12px;
-
-    font-weight: 600;
-
-    cursor: pointer;
-
-    transition: all 0.2s ease;
-}
-
-
-.task-actions button:hover {
-    background: #f3f4f6;
-
-    border-color: #9ca3af;
-}
-
-
-/* =========================================
-   EMPTY TASKS
-========================================= */
-
-.empty-tasks {
-    padding: 60px 20px;
-
-    text-align: center;
-
-    border: 1px dashed #d1d5db;
-
-    border-radius: 10px;
-
-    background: #fafafa;
-}
-
-
-.empty-tasks h3 {
-    margin: 0;
-
-    font-size: 17px;
-
-    color: #374151;
-}
-
-
-.empty-tasks p {
-    margin: 7px 0 0;
-
-    color: #6b7280;
-
-    font-size: 13px;
 }
 
 
@@ -662,239 +268,106 @@
    LOADING
 ========================================= */
 
-.dashboard-loading {
-    min-height: 100vh;
+.loading-container {
+    width: 100%;
+
+    min-height: 250px;
 
     display: flex;
 
-    justify-content: center;
-
     align-items: center;
 
-    background: #f5f7fb;
+    justify-content: center;
 
     color: #6b7280;
 
-    font-size: 16px;
+    text-align: center;
 }
 
 
 /* =========================================
-   ERROR
+   EMPTY STATE
 ========================================= */
 
-.dashboard > .error-message {
-    max-width: 1400px;
-
-    margin: 0 auto 20px;
-}
-
-
-/* =========================================
-   DELETE MODAL OVERLAY
-========================================= */
-
-.delete-modal-overlay {
-    position: fixed;
-
-    inset: 0;
-
-    z-index: 9999;
-
-    display: flex;
-
-    justify-content: center;
-
-    align-items: center;
-
-    padding: 20px;
-
-    background: rgba(17, 24, 39, 0.55);
-}
-
-
-/* =========================================
-   DELETE MODAL
-========================================= */
-
-.delete-modal {
+.empty-state {
     width: 100%;
 
-    max-width: 420px;
-
-    background: #ffffff;
-
-    border-radius: 16px;
-
-    padding: 30px;
+    padding: 60px 20px;
 
     text-align: center;
 
-    box-shadow:
-        0 20px 50px rgba(0, 0, 0, 0.2);
+    background: #ffffff;
 
-    animation: deleteModalShow 0.2s ease;
+    border: 1px solid #e5e7eb;
+
+    border-radius: 14px;
 }
 
 
-/* =========================================
-   DELETE MODAL ANIMATION
-========================================= */
-
-@keyframes deleteModalShow {
-
-    from {
-        opacity: 0;
-
-        transform: scale(0.95);
-    }
-
-    to {
-        opacity: 1;
-
-        transform: scale(1);
-    }
-}
-
-
-/* =========================================
-   DELETE ICON
-========================================= */
-
-.delete-modal-icon {
-    width: 52px;
-
-    height: 52px;
-
-    margin: 0 auto 18px;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    border-radius: 50%;
-
-    background: #fee2e2;
-
-    color: #dc2626;
-
-    font-size: 25px;
-
-    font-weight: 700;
-}
-
-
-/* =========================================
-   DELETE TITLE
-========================================= */
-
-.delete-modal h2 {
-    margin: 0 0 12px;
+.empty-state h2 {
+    margin: 0 0 8px;
 
     color: #111827;
 
-    font-size: 23px;
+    font-size: 22px;
 
-    font-weight: 700;
+    line-height: 1.3;
 }
 
 
-/* =========================================
-   DELETE MESSAGE
-========================================= */
-
-.delete-modal p {
-    margin: 0;
+.empty-state p {
+    margin: 0 0 20px;
 
     color: #6b7280;
 
     font-size: 14px;
 
-    line-height: 1.6;
-}
-
-
-.delete-modal p strong {
-    color: #111827;
+    line-height: 1.5;
 }
 
 
 /* =========================================
-   DELETE MODAL ACTIONS
+   LARGE SCREENS
 ========================================= */
 
-.delete-modal-actions {
-    display: flex;
+@media (min-width: 1400px) {
 
-    justify-content: center;
-
-    gap: 12px;
-
-    margin-top: 25px;
-}
+    .dashboard-container {
+        padding: 36px 50px;
+    }
 
 
-.delete-modal-actions button {
-    min-width: 110px;
+    .task-grid {
+        grid-template-columns:
+            repeat(auto-fill, minmax(320px, 1fr));
 
-    height: 42px;
-
-    padding: 0 20px;
-
-    border-radius: 8px;
-
-    font-size: 14px;
-
-    font-weight: 600;
-
-    cursor: pointer;
-
-    transition:
-        background 0.2s ease,
-        transform 0.1s ease;
+        gap: 22px;
+    }
 }
 
 
 /* =========================================
-   CANCEL DELETE
+   LAPTOP
 ========================================= */
 
-.delete-cancel-btn {
-    border: 1px solid #d1d5db;
+@media (max-width: 1100px) {
 
-    background: #ffffff;
-
-    color: #374151;
-}
+    .dashboard-container {
+        padding: 26px;
+    }
 
 
-.delete-cancel-btn:hover {
-    background: #f3f4f6;
-}
+    .dashboard-title h1 {
+        font-size: 28px;
+    }
 
 
-/* =========================================
-   CONFIRM DELETE
-========================================= */
+    .task-grid {
+        grid-template-columns:
+            repeat(auto-fill, minmax(280px, 1fr));
 
-.delete-confirm-btn {
-    border: none;
-
-    background: #dc2626;
-
-    color: #ffffff;
-}
-
-
-.delete-confirm-btn:hover {
-    background: #b91c1c;
-}
-
-
-.delete-modal-actions button:active {
-    transform: scale(0.98);
+        gap: 18px;
+    }
 }
 
 
@@ -902,40 +375,62 @@
    TABLET
 ========================================= */
 
-@media (max-width: 1100px) {
+@media (max-width: 800px) {
 
-    .stats-grid {
-        grid-template-columns:
-            repeat(4, minmax(0, 1fr));
+    .dashboard-container {
+        padding: 22px;
     }
+
+
+    .dashboard-header {
+        align-items: flex-start;
+
+        flex-direction: column;
+
+        gap: 16px;
+
+        margin-bottom: 24px;
+    }
+
+
+    .dashboard-header-actions {
+        width: 100%;
+    }
+
+
+    .dashboard-header-actions button {
+        flex: 1;
+
+        min-width: 0;
+    }
+
+
+    .dashboard-controls {
+        flex-wrap: wrap;
+
+        align-items: stretch;
+    }
+
+
+    .search-wrapper {
+        width: 100%;
+
+        flex-basis: 100%;
+    }
+
+
+    .dashboard-controls select {
+        width: calc(50% - 6px);
+
+        flex: 1;
+    }
+
 
     .task-grid {
         grid-template-columns:
             repeat(2, minmax(0, 1fr));
-    }
-}
 
-
-/* =========================================
-   SMALL TABLET
-========================================= */
-
-@media (max-width: 800px) {
-
-    .dashboard {
-        padding: 20px;
-    }
-
-    .dashboard-header {
-        align-items: flex-start;
-    }
-
-    .task-filters {
-        grid-template-columns: 1fr 1fr;
-    }
-
-    .task-filters input {
-        grid-column: 1 / -1;
+        gap: 16px;
     }
 }
 
@@ -946,90 +441,93 @@
 
 @media (max-width: 600px) {
 
-    .dashboard {
-        padding: 15px;
+    .dashboard-container {
+        padding: 18px;
     }
 
-    .dashboard-header {
-        flex-direction: column;
-
-        align-items: stretch;
-
-        margin-bottom: 22px;
-    }
 
     .dashboard-title h1 {
-        font-size: 27px;
-    }
-
-    .dashboard-user {
-        justify-content: space-between;
-
-        width: 100%;
-    }
-
-    .user-info {
-        align-items: flex-start;
-    }
-
-    .stats-grid {
-        grid-template-columns:
-            repeat(2, minmax(0, 1fr));
-
-        gap: 10px;
-
-        margin-bottom: 22px;
-    }
-
-    .stat-card {
-        min-height: 100px;
-
-        padding: 15px;
-    }
-
-    .stat-card strong {
         font-size: 25px;
     }
 
-    .tasks-section {
-        padding: 17px;
+
+    .dashboard-title p {
+        font-size: 13px;
     }
 
-    .tasks-header {
-        align-items: stretch;
 
+    .dashboard-header {
+        margin-bottom: 20px;
+    }
+
+
+    .dashboard-header-actions {
+        gap: 8px;
+    }
+
+
+    .add-task-btn,
+    .logout-btn {
+        height: 42px;
+
+        padding: 0 12px;
+
+        font-size: 13px;
+    }
+
+
+    .dashboard-controls {
         flex-direction: column;
+
+        gap: 10px;
+
+        margin-bottom: 18px;
     }
 
-    .create-task-btn {
+
+    .search-wrapper {
         width: 100%;
+
+        flex-basis: auto;
     }
 
-    .task-filters {
-        grid-template-columns: 1fr;
+
+    .dashboard-controls select {
+        width: 100%;
+
+        flex: none;
     }
 
-    .task-filters input {
-        grid-column: auto;
+
+    .search-wrapper input,
+    .dashboard-controls select {
+        height: 42px;
+
+        font-size: 13px;
     }
+
+
+    .task-count {
+        margin-bottom: 15px;
+
+        font-size: 13px;
+    }
+
 
     .task-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: minmax(0, 1fr);
+
+        gap: 15px;
     }
 
 
-    /* DELETE MODAL MOBILE */
-
-    .delete-modal {
-        max-width: 95%;
-
-        padding: 25px 20px;
-
-        border-radius: 12px;
+    .empty-state {
+        padding: 45px 18px;
     }
 
-    .delete-modal h2 {
-        font-size: 21px;
+
+    .empty-state h2 {
+        font-size: 20px;
     }
 }
 
@@ -1038,48 +536,462 @@
    SMALL MOBILE
 ========================================= */
 
-@media (max-width: 400px) {
+@media (max-width: 420px) {
 
-    .dashboard {
+    .dashboard-container {
+        padding: 14px;
+    }
+
+
+    .dashboard-title h1 {
+        font-size: 23px;
+    }
+
+
+    .dashboard-title p {
+        font-size: 12px;
+    }
+
+
+    .dashboard-header-actions {
+        width: 100%;
+
+        gap: 7px;
+    }
+
+
+    .add-task-btn,
+    .logout-btn {
+        width: 100%;
+
+        min-width: 0;
+
+        padding: 0 8px;
+
+        font-size: 12px;
+    }
+
+
+    .task-grid {
+        gap: 12px;
+    }
+
+
+    .empty-state {
+        padding: 38px 14px;
+    }
+
+
+    .empty-state h2 {
+        font-size: 18px;
+    }
+
+
+    .empty-state p {
+        font-size: 13px;
+    }
+}
+
+
+/* =========================================
+   VERY SMALL PHONES
+========================================= */
+
+@media (max-width: 360px) {
+
+    .dashboard-container {
         padding: 10px;
     }
 
-    .stats-grid {
-        grid-template-columns: 1fr;
+
+    .dashboard-title h1 {
+        font-size: 21px;
     }
 
-    .dashboard-user {
-        align-items: flex-start;
 
-        flex-direction: column;
+    .dashboard-title p {
+        font-size: 11px;
+    }
 
+
+    .dashboard-header {
+        gap: 12px;
+
+        margin-bottom: 16px;
+    }
+
+
+    .dashboard-header-actions {
+        gap: 6px;
+    }
+
+
+    .add-task-btn,
+    .logout-btn {
+        height: 40px;
+
+        padding: 0 6px;
+
+        font-size: 11px;
+    }
+
+
+    .dashboard-controls {
+        gap: 8px;
+
+        margin-bottom: 15px;
+    }
+
+
+    .search-wrapper input,
+    .dashboard-controls select {
+        height: 40px;
+
+        padding: 0 10px;
+
+        font-size: 12px;
+    }
+
+
+    .task-count {
+        font-size: 12px;
+    }
+
+
+    .task-grid {
         gap: 10px;
     }
 
-    .logout-btn {
-        width: 100%;
+
+    .empty-state {
+        padding: 32px 12px;
+
+        border-radius: 10px;
+    }
+}
+
+
+/* =========================================
+   LANDSCAPE MOBILE
+========================================= */
+
+@media (max-height: 600px) and (max-width: 700px) {
+
+    .dashboard-container {
+        padding-top: 14px;
+
+        padding-bottom: 14px;
     }
 
-    .task-actions {
-        flex-direction: column;
-    }
 
-    .task-actions button {
-        width: 100%;
+    .dashboard-header {
+        margin-bottom: 18px;
     }
 
 
-    /* DELETE MODAL */
-
-    .delete-modal {
-        padding: 24px 18px;
+    .dashboard-title h1 {
+        font-size: 23px;
     }
 
-    .delete-modal-actions {
-        flex-direction: column-reverse;
+
+    .task-grid {
+        gap: 12px;
+    }
+}
+
+
+/* =========================================
+   TOUCH DEVICES
+========================================= */
+
+@media (hover: none) and (pointer: coarse) {
+
+    .add-task-btn,
+    .logout-btn,
+    .search-wrapper input,
+    .dashboard-controls select {
+        min-height: 42px;
+    }
+}
+
+/* =========================================
+   HEADER WRAPPER
+========================================= */
+
+.dashboard-header-wrapper {
+    width: 100%;
+}
+
+
+/* =========================================
+   DASHBOARD STATISTICS
+========================================= */
+
+.dashboard-stats {
+    display: grid;
+
+    grid-template-columns:
+        repeat(7, minmax(0, 1fr));
+
+    gap: 20px;
+
+    width: 100%;
+
+    margin-bottom: 30px;
+}
+
+
+/* =========================================
+   STAT CARD
+========================================= */
+
+.dashboard-stat-card {
+    min-width: 0;
+
+    min-height: 180px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: space-between;
+
+    padding: 30px;
+
+    background: #ffffff;
+
+    border: 1px solid #e5e7eb;
+
+    border-radius: 14px;
+
+    box-shadow:
+        0 4px 12px rgba(0, 0, 0, 0.04);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+.dashboard-stat-card:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 8px 22px rgba(0, 0, 0, 0.07);
+}
+
+
+/* =========================================
+   STAT LABEL
+========================================= */
+
+.dashboard-stat-label {
+    color: #64748b;
+
+    font-size: 17px;
+
+    font-weight: 500;
+
+    line-height: 1.4;
+
+    overflow-wrap: anywhere;
+}
+
+
+/* =========================================
+   STAT VALUE
+========================================= */
+
+.dashboard-stat-value {
+    color: #020617;
+
+    font-size: 43px;
+
+    font-weight: 700;
+
+    line-height: 1;
+}
+
+
+/* =========================================
+   LARGE DESKTOP
+========================================= */
+
+@media (max-width: 1400px) {
+
+    .dashboard-stats {
+        grid-template-columns:
+            repeat(4, minmax(0, 1fr));
+
+        gap: 16px;
     }
 
-    .delete-modal-actions button {
-        width: 100%;
+
+    .dashboard-stat-card {
+        min-height: 155px;
+
+        padding: 24px;
+    }
+
+
+    .dashboard-stat-label {
+        font-size: 16px;
+    }
+
+
+    .dashboard-stat-value {
+        font-size: 38px;
+    }
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 900px) {
+
+    .dashboard-stats {
+        grid-template-columns:
+            repeat(3, minmax(0, 1fr));
+
+        gap: 14px;
+
+        margin-bottom: 24px;
+    }
+
+
+    .dashboard-stat-card {
+        min-height: 140px;
+
+        padding: 20px;
+    }
+
+
+    .dashboard-stat-label {
+        font-size: 14px;
+    }
+
+
+    .dashboard-stat-value {
+        font-size: 34px;
+    }
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+    .dashboard-stats {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+
+        gap: 12px;
+
+        margin-bottom: 20px;
+    }
+
+
+    .dashboard-stat-card {
+        min-height: 125px;
+
+        padding: 18px;
+
+        border-radius: 12px;
+    }
+
+
+    .dashboard-stat-label {
+        font-size: 13px;
+    }
+
+
+    .dashboard-stat-value {
+        font-size: 30px;
+    }
+}
+
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width: 420px) {
+
+    .dashboard-stats {
+        gap: 10px;
+    }
+
+
+    .dashboard-stat-card {
+        min-height: 110px;
+
+        padding: 15px;
+
+        border-radius: 10px;
+    }
+
+
+    .dashboard-stat-label {
+        font-size: 12px;
+    }
+
+
+    .dashboard-stat-value {
+        font-size: 27px;
+    }
+}
+
+
+/* =========================================
+   VERY SMALL PHONES
+========================================= */
+
+@media (max-width: 360px) {
+
+    .dashboard-stats {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+
+        gap: 8px;
+    }
+
+
+    .dashboard-stat-card {
+        min-height: 100px;
+
+        padding: 13px;
+    }
+
+
+    .dashboard-stat-label {
+        font-size: 11px;
+    }
+
+
+    .dashboard-stat-value {
+        font-size: 24px;
+    }
+}
+
+
+/* =========================================
+   LANDSCAPE MOBILE
+========================================= */
+
+@media (max-height: 600px) and (max-width: 700px) {
+
+    .dashboard-stat-card {
+        min-height: 105px;
+
+        padding: 15px;
+    }
+
+
+    .dashboard-stat-value {
+        font-size: 28px;
     }
 }

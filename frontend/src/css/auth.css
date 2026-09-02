@@ -6,7 +6,19 @@
     box-sizing: border-box;
 }
 
+html {
+    width: 100%;
+
+    min-height: 100%;
+
+    overflow-x: hidden;
+}
+
 body {
+    width: 100%;
+
+    min-height: 100vh;
+
     margin: 0;
 
     font-family:
@@ -20,6 +32,8 @@ body {
     background: #f5f7fb;
 
     color: #1f2937;
+
+    overflow-x: hidden;
 }
 
 
@@ -28,7 +42,11 @@ body {
 ========================================= */
 
 .auth-container {
+    width: 100%;
+
     min-height: 100vh;
+
+    min-height: 100dvh;
 
     display: flex;
 
@@ -36,6 +54,8 @@ body {
     align-items: center;
 
     padding: 24px;
+
+    overflow-x: hidden;
 }
 
 
@@ -48,6 +68,8 @@ body {
 
     max-width: 430px;
 
+    margin: 0 auto;
+
     background: #ffffff;
 
     padding: 36px;
@@ -58,6 +80,8 @@ body {
 
     box-shadow:
         0 10px 35px rgba(0, 0, 0, 0.08);
+
+    overflow: hidden;
 }
 
 
@@ -74,7 +98,11 @@ body {
 
     font-weight: 700;
 
+    line-height: 1.3;
+
     color: #111827;
+
+    word-break: break-word;
 }
 
 
@@ -94,6 +122,8 @@ body {
     font-size: 14px;
 
     line-height: 1.5;
+
+    overflow-wrap: anywhere;
 }
 
 
@@ -103,6 +133,8 @@ body {
 
 .auth-card form {
     width: 100%;
+
+    min-width: 0;
 }
 
 
@@ -111,6 +143,10 @@ body {
 ========================================= */
 
 .form-group {
+    width: 100%;
+
+    min-width: 0;
+
     margin-bottom: 19px;
 }
 
@@ -122,13 +158,19 @@ body {
 .form-group label {
     display: block;
 
+    width: 100%;
+
     margin-bottom: 7px;
 
     font-size: 14px;
 
     font-weight: 600;
 
+    line-height: 1.4;
+
     color: #374151;
+
+    overflow-wrap: anywhere;
 }
 
 
@@ -137,7 +179,11 @@ body {
 ========================================= */
 
 .form-group input {
+    display: block;
+
     width: 100%;
+
+    max-width: 100%;
 
     height: 46px;
 
@@ -151,6 +197,8 @@ body {
 
     color: #111827;
 
+    font-family: inherit;
+
     font-size: 14px;
 
     outline: none;
@@ -159,6 +207,9 @@ body {
         border-color 0.2s ease,
         box-shadow 0.2s ease,
         background 0.2s ease;
+
+    -webkit-appearance: none;
+    appearance: none;
 }
 
 
@@ -168,6 +219,8 @@ body {
 
 .form-group input::placeholder {
     color: #9ca3af;
+
+    opacity: 1;
 }
 
 
@@ -186,15 +239,34 @@ body {
 
 
 /* =========================================
+   INPUT DISABLED
+========================================= */
+
+.form-group input:disabled {
+    background: #f9fafb;
+
+    color: #9ca3af;
+
+    cursor: not-allowed;
+}
+
+
+/* =========================================
    SUBMIT BUTTON
 ========================================= */
 
 .auth-card form > button {
+    display: block;
+
     width: 100%;
+
+    max-width: 100%;
 
     height: 46px;
 
     margin-top: 5px;
+
+    padding: 0 16px;
 
     border: none;
 
@@ -204,9 +276,13 @@ body {
 
     color: #ffffff;
 
+    font-family: inherit;
+
     font-size: 15px;
 
     font-weight: 600;
+
+    line-height: 1;
 
     cursor: pointer;
 
@@ -259,11 +335,19 @@ body {
 
     align-items: center;
 
+    flex-wrap: wrap;
+
     gap: 5px;
+
+    width: 100%;
 
     margin-top: 25px;
 
     font-size: 14px;
+
+    line-height: 1.5;
+
+    text-align: center;
 
     color: #6b7280;
 }
@@ -286,6 +370,8 @@ body {
 
     font-weight: 600;
 
+    line-height: 1.5;
+
     text-decoration: none;
 
     cursor: pointer;
@@ -306,10 +392,25 @@ body {
 
 
 /* =========================================
+   LINK FOCUS
+========================================= */
+
+.auth-switch a:focus-visible {
+    outline: 2px solid #6366f1;
+
+    outline-offset: 3px;
+
+    border-radius: 3px;
+}
+
+
+/* =========================================
    TOASTIFY
 ========================================= */
 
 .Toastify__toast {
+    max-width: calc(100vw - 24px);
+
     font-family:
         Inter,
         -apple-system,
@@ -323,25 +424,72 @@ body {
 
 
 /* =========================================
+   LARGE TABLET / SMALL LAPTOP
+========================================= */
+
+@media (max-width: 900px) {
+
+    .auth-container {
+        padding: 22px;
+    }
+
+    .auth-card {
+        max-width: 430px;
+
+        padding: 34px;
+    }
+}
+
+
+/* =========================================
    TABLET
 ========================================= */
 
 @media (max-width: 600px) {
 
     .auth-container {
+        min-height: 100vh;
+
+        min-height: 100dvh;
+
         padding: 18px;
     }
 
 
     .auth-card {
+        width: 100%;
+
+        max-width: 430px;
+
         padding: 30px 24px;
+
+        border-radius: 14px;
     }
 
 
     .auth-card h1 {
         font-size: 26px;
+
+        line-height: 1.3;
     }
 
+
+    .auth-subtitle {
+        margin-bottom: 26px;
+
+        font-size: 14px;
+    }
+
+
+    .form-group {
+        margin-bottom: 18px;
+    }
+
+
+    .form-group input,
+    .auth-card form > button {
+        height: 45px;
+    }
 }
 
 
@@ -349,14 +497,22 @@ body {
    MOBILE
 ========================================= */
 
-@media (max-width: 400px) {
+@media (max-width: 480px) {
 
     .auth-container {
-        padding: 12px;
+        align-items: flex-start;
+
+        padding: 16px 12px;
     }
 
 
     .auth-card {
+        width: 100%;
+
+        max-width: 100%;
+
+        margin-top: 10px;
+
         padding: 26px 18px;
 
         border-radius: 12px;
@@ -365,16 +521,31 @@ body {
 
     .auth-card h1 {
         font-size: 24px;
+
+        line-height: 1.3;
     }
 
 
     .auth-subtitle {
+        margin-top: 7px;
+
         margin-bottom: 24px;
+
+        font-size: 13px;
+
+        line-height: 1.5;
     }
 
 
     .form-group {
         margin-bottom: 16px;
+    }
+
+
+    .form-group label {
+        margin-bottom: 7px;
+
+        font-size: 13px;
     }
 
 
@@ -384,7 +555,23 @@ body {
     }
 
 
+    .form-group input {
+        padding: 0 12px;
+
+        font-size: 14px;
+    }
+
+
+    .auth-card form > button {
+        padding: 0 14px;
+
+        font-size: 14px;
+    }
+
+
     .auth-switch {
+        margin-top: 22px;
+
         font-size: 13px;
     }
 
@@ -393,4 +580,149 @@ body {
         font-size: 13px;
     }
 
+
+    .Toastify__toast {
+        width: calc(100vw - 24px);
+
+        margin: 0 auto;
+
+        font-size: 13px;
+    }
+}
+
+
+/* =========================================
+   VERY SMALL PHONES
+========================================= */
+
+@media (max-width: 360px) {
+
+    .auth-container {
+        padding: 10px 8px;
+    }
+
+
+    .auth-card {
+        margin-top: 5px;
+
+        padding: 22px 14px;
+
+        border-radius: 10px;
+    }
+
+
+    .auth-card h1 {
+        font-size: 22px;
+    }
+
+
+    .auth-subtitle {
+        margin-bottom: 20px;
+
+        font-size: 12px;
+    }
+
+
+    .form-group {
+        margin-bottom: 14px;
+    }
+
+
+    .form-group label {
+        font-size: 12px;
+    }
+
+
+    .form-group input,
+    .auth-card form > button {
+        height: 42px;
+    }
+
+
+    .form-group input {
+        padding: 0 10px;
+
+        font-size: 13px;
+    }
+
+
+    .auth-card form > button {
+        font-size: 13px;
+    }
+
+
+    .auth-switch {
+        gap: 3px;
+
+        margin-top: 19px;
+
+        font-size: 12px;
+    }
+
+
+    .auth-switch a {
+        font-size: 12px;
+    }
+}
+
+
+/* =========================================
+   LANDSCAPE MOBILE
+========================================= */
+
+@media (max-height: 600px) and (max-width: 700px) {
+
+    .auth-container {
+        align-items: flex-start;
+
+        padding-top: 12px;
+
+        padding-bottom: 12px;
+    }
+
+
+    .auth-card {
+        margin-top: 0;
+
+        padding-top: 22px;
+
+        padding-bottom: 22px;
+    }
+
+
+    .auth-card h1 {
+        font-size: 23px;
+    }
+
+
+    .auth-subtitle {
+        margin-bottom: 20px;
+    }
+
+
+    .form-group {
+        margin-bottom: 14px;
+    }
+
+
+    .auth-switch {
+        margin-top: 18px;
+    }
+}
+
+
+/* =========================================
+   TOUCH DEVICES
+========================================= */
+
+@media (hover: none) and (pointer: coarse) {
+
+    .auth-card form > button {
+        min-height: 44px;
+    }
+
+
+    .form-group input {
+        min-height: 44px;
+    }
 }
